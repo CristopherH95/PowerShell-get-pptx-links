@@ -60,7 +60,19 @@ function Get-PptLinks {
             $linksFileString = $linksFileString + "- " + $lnk + "`r`n"
         }
     }
-    Add-Content $Destination $linksFileString
+    try {
+        $writer = New-Object System.IO.StreamWriter($Destination)
+        $writer.Write($linksFileString)
+        $writer.Close()
+    }
+    catch {
+        Write-Output "Unexpected exception encountered while trying to write to: $($Destination)"
+    }
+    finally {
+        if ($writer -ne $null) {
+            $writer.Dispose()
+        }
+    }
     Write-Verbose -Message "Cleaning up temp files at $($tempExtract)"
     Remove-Item -Recurse -Force $tempExtract    #clean up
     Write-Verbose -Message "Output saved to: $($Destination)"
