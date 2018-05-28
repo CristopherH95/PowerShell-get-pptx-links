@@ -24,7 +24,7 @@ function Get-PptLinks {
     $ErrorActionPreference = "Stop"
 
     $currentPath = Convert-Path .
-    $tempExtract = $currentPath + '\tmpPptExtract' #unpack ppt file to temp directory
+    $tempExtract = $currentPath + '\tmpPptExtract' + (Get-Random) #unpack ppt file to temp directory
     Write-Verbose -Message "Unpacking pptx file $($Path) to temp path: $($tempExtract)"
     Add-Type -assembly "system.io.compression.filesystem"
     [io.compression.zipfile]::ExtractToDirectory($Path, $tempExtract)
