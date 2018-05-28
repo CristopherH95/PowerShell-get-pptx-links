@@ -39,7 +39,7 @@ function Get-PptLinks {
             $links.Add($xmlObj.Target) > $null 
         }
     }
-    [System.GC]::Collect()
+    [System.GC]::Collect()  #Garbage collect after processing all the files
     Write-Verbose -Message "Filtering out any duplicate links"
     $links = $links | Select-Object -Unique #only keep unique links
     $linksFileString = ""
@@ -76,5 +76,5 @@ function Get-PptLinks {
     Write-Verbose -Message "Cleaning up temp files at $($tempExtract)"
     Remove-Item -Recurse -Force $tempExtract    #clean up
     Write-Verbose -Message "Output saved to: $($Destination)"
-    [System.GC]::Collect()
+    [System.GC]::Collect() #Done so garbage collect
 }
