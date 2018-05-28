@@ -18,7 +18,7 @@ function Get-PptLinks {
     Param(
         [Parameter(Mandatory=$true)]
         [System.IO.FileInfo]$Path,
-        [string]$Destination = "links.txt",
+        [string]$Destination = (Convert-Path .) + "\links.txt",
         [switch]$html
     )
     $ErrorActionPreference = "Stop"
