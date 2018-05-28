@@ -8,5 +8,5 @@ Outputs to either plain text or an html table.
 # Usage
 
 ```
-Get-PptLinks [-Path] <String[]> [-Destination] <String[]> [-html]
+Get-PptLinks [-Path] <String[]> [-Destination] <String[]> [-html] [-verbose]
 ```
