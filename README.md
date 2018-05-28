@@ -5,7 +5,7 @@ I wrote this for certain occassions where I found I had missed links to videos/r
 
 Outputs to either plain text or an html table.
 
-#Usage
+# Usage
 
 ```
 Get-PptLinks [-Path] <String[]> [-Destination] <String[]> [-html]
